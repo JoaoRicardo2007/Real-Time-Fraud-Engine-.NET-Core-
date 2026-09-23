@@ -98,6 +98,3 @@ A solution é dividida em quatro projetos principais para garantir o desacoplame
 ## 👨‍💻 Autor
 
 Desenvolvido com foco em boas práticas de engenharia de software e arquitetura de sistemas robustos. Sinta-se à vontade para entrar em contato ou acompanhar o progresso!
-## 👨‍💻 Autor
-
-Desenvolvido com foco em boas práticas de engenharia de software e arquitetura de sistemas robustos. Sinta-se à vontade para entrar em co
