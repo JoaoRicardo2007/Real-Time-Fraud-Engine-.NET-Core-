@@ -28,21 +28,21 @@ Desenvolver um motor de prevenção a fraudes transacionais de alta performance 
 
 ## 🛠️ Stack Tecnológica
 
-| Camada / Função | Tecnologia |
-| :--- | :--- |
-| **Linguagem & Framework** | C# / .NET (ASP.NET Core Minimal APIs) |
-| **Arquitetura** | Clean Architecture, CQRS (MediatR), Chain of Responsibility |
-| **Banco de Dados** | PostgreSQL + Entity Framework Core |
-| **Mensageria** | RabbitMQ + MassTransit (Publish/Subscribe) |
-| **Resiliência & Tolerância** | Polly (Retry & Circuit Breaker) |
-| **Testes Automatizados** | xUnit, NSubstitute, Testcontainers |
-| **Infraestrutura Local** | Docker & Docker Compose |
+| Camada / Função | Tecnologia | 
+ | ----- | ----- | 
+| **Linguagem & Framework** | C# / .NET (ASP.NET Core Minimal APIs) | 
+| **Arquitetura** | Clean Architecture, CQRS (MediatR), Chain of Responsibility | 
+| **Banco de Dados** | PostgreSQL + Entity Framework Core | 
+| **Mensageria** | RabbitMQ + MassTransit (Publish/Subscribe) | 
+| **Resiliência & Tolerância** | Polly (Retry & Circuit Breaker) | 
+| **Testes Automatizados** | xUnit, NSubstitute, Testcontainers | 
+| **Infraestrutura Local** | Docker & Docker Compose | 
 
 ## 🏗️ Arquitetura do Sistema
 
 A solution é dividida em quatro projetos principais para garantir o desacoplamento e a manutenibilidade:
 
-```text
+```
 📁 FraudEngine.sln
  ├── 📁 src/
  │   ├── 📁 FraudEngine.Domain        # Entidades, Value Objects e Contratos (Regras puras de negócio)
@@ -51,3 +51,58 @@ A solution é dividida em quatro projetos principais para garantir o desacoplame
  │   └── 📁 FraudEngine.Api           # Minimal APIs, Configurações e Endpoints HTTP
  └── 📁 tests/
      └── 📁 FraudEngine.Domain.Tests  # Testes unitários do Motor de Regras e Entidades
+
+
+
+
+```
+
+## ⚙️ Fluxo de Funcionamento (Arquitetura Orientada a Eventos)
+
+1. **Ingestão:** A API recebe a requisição HTTP POST contendo os dados da transação (Valor, ID do usuário, IP, Dispositivo).
+
+2. **Registro Inicial:** A transação é persistida no PostgreSQL com o status inicial de análise (`Pending`).
+
+3. **Desacoplamento:** Um evento `TransactionCreatedEvent` é publicado no **RabbitMQ** via **MassTransit**.
+
+4. **Processamento Assíncrono:** Um consumidor em segundo plano intercepta o evento e aciona o **Motor de Fraudes**.
+
+5. **Avaliação por Cadeia:** O padrão *Chain of Responsibility* executa as regras em sequência, somando pontos ao *Score* de risco:
+
+   * *Regra de Geolocalização* (Incompatibilidade de local)
+
+   * *Regra de Limite / Velocidade* (Múltiplas transações em curto espaço de tempo)
+
+   * *Regra de Dispositivo* (Fingerprint desconhecido)
+
+6. **Veredito:** O sistema atualiza o status da transação no banco (Aprovado, Em Análise Manual, ou Rejeitado) e dispara notificações se necessário.
+
+## 🚀 Como Executar o Projeto (Em Breve)
+
+*(Instruções para quando o código for implementado)*
+
+1. Clone o repositório:
+
+   ```
+   git clone https://github.com/seu-usuario/fraud-engine.git
+   
+   
+   
+   
+   ```
+
+2. Suba a infraestrutura local com o Docker Compose:
+
+   ```
+   docker-compose up -d
+   
+   
+   
+   
+   ```
+
+3. Execute as migrações do banco de dados e inicie a API.
+
+## 👨‍💻 Autor
+
+Desenvolvido com foco em boas práticas de engenharia de software e arquitetura de sistemas robustos. Sinta-se à vontade para entrar em contato ou acompanhar o progresso!
