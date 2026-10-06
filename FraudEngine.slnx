@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/FraudEngine.Api/FraudEngine.Api.csproj" />
+  <Project Path="src/FraudEngine.Application/FraudEngine.Application.csproj" />
+  <Project Path="src/FraudEngine.Domain/FraudEngine.Domain.csproj" />
+  <Project Path="src/FraudEngine.Infrastructure/FraudEngine.Infrastructure.csproj" />
+</Solution>
