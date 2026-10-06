@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FraudEngine.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e020915c8c112fa1deba59f8de62acc9883983c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FraudEngine.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FraudEngine.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

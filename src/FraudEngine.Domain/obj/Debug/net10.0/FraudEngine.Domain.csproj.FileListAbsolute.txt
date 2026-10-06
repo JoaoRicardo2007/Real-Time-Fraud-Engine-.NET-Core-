@@ -1,0 +1,13 @@
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\bin\Debug\net10.0\FraudEngine.Domain.deps.json
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\bin\Debug\net10.0\FraudEngine.Domain.dll
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\bin\Debug\net10.0\FraudEngine.Domain.pdb
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.AssemblyInfoInputs.cache
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.AssemblyInfo.cs
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.csproj.CoreCompileInputs.cache
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.sourcelink.json
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.dll
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\refint\FraudEngine.Domain.dll
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEngine.Domain.pdb
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\ref\FraudEngine.Domain.dll
+C:\Users\João\source\repos\Real-Time-Fraud-Engine-.NET-Core-\src\FraudEngine.Domain\obj\Debug\net10.0\FraudEng.0E12D7A3.Up2Date

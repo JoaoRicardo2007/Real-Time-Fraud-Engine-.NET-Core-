@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Api\\FraudEngine.Api.csproj": {}
+    "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Api\\FraudEngine.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Api\\FraudEngine.Api.csproj": {
+    "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Api\\FraudEngine.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Api\\FraudEngine.Api.csproj",
+        "projectUniqueName": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Api\\FraudEngine.Api.csproj",
         "projectName": "FraudEngine.Api",
-        "projectPath": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Api\\FraudEngine.Api.csproj",
+        "projectPath": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Api\\FraudEngine.Api.csproj",
         "packagesPath": "C:\\Users\\João\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Api\\obj\\",
+        "outputPath": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Domain\\FraudEngine.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Domain\\FraudEngine.Domain.csproj",
       "projectName": "FraudEngine.Domain",
-      "projectPath": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Domain\\FraudEngine.Domain.csproj",
+      "projectPath": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Domain\\FraudEngine.Domain.csproj",
       "packagesPath": "C:\\Users\\João\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\João\\source\\repos\\FraudEngine\\src\\FraudEngine.Domain\\obj\\",
+      "outputPath": "C:\\Users\\João\\source\\repos\\Real-Time-Fraud-Engine-.NET-Core-\\src\\FraudEngine.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
