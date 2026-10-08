@@ -20,11 +20,11 @@ public class Transaction
     public Transaction(string userId, decimal amount, string currency, string ipAddress, string deviceFingerprint, string location)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(userId);
-        ArgumentException.ThrowIfNullOrWhiteSpace(amount);
         ArgumentException.ThrowIfNullOrWhiteSpace(currency);
         ArgumentException.ThrowIfNullOrWhiteSpace(deviceFingerprint);
+        ArgumentException.ThrowIfNullOrWhiteSpace(ipAddress);
 
-        if(amount <= 0)
+        if (amount <= 0)
         {
             throw new ArgumentOutOfRangeException(nameof(amount),"Transaction amount must be greater than zero");
         }
