@@ -19,6 +19,16 @@ public class Transaction
     // Construtor para criar uma nova transação pendente
     public Transaction(string userId, decimal amount, string currency, string ipAddress, string deviceFingerprint, string location)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(userId);
+        ArgumentException.ThrowIfNullOrWhiteSpace(amount);
+        ArgumentException.ThrowIfNullOrWhiteSpace(currency);
+        ArgumentException.ThrowIfNullOrWhiteSpace(deviceFingerprint);
+
+        if(amount <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount),"Transaction amount must be greater than zero");
+        }
+
         Id = Guid.NewGuid();
         UserId = userId;
         Amount = amount;
