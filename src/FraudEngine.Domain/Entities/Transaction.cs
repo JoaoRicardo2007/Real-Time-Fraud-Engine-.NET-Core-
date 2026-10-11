@@ -21,12 +21,13 @@ public class Transaction
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(userId);
         ArgumentException.ThrowIfNullOrWhiteSpace(currency);
-        ArgumentException.ThrowIfNullOrWhiteSpace(deviceFingerprint);
         ArgumentException.ThrowIfNullOrWhiteSpace(ipAddress);
+        ArgumentException.ThrowIfNullOrWhiteSpace(deviceFingerprint);
+        ArgumentException.ThrowIfNullOrWhiteSpace(location);
 
         if (amount <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(amount),"Transaction amount must be greater than zero");
+            throw new ArgumentOutOfRangeException(nameof(amount), "Transaction amount must be greater than zero");
         }
 
         Id = Guid.NewGuid();
@@ -43,24 +44,24 @@ public class Transaction
     // Método para atualizar o status da transação
     public void UpdateTransactionStatus(int riskScore)
     {
-        if (riskScore < 0 || riskScore > 100)
+        if (Status != TransactionStatus.Pending)
+        {
+            throw new InvalidOperationException(
+                "Only pending transactions can be evaluated.");
+        }
+
+        if (riskScore is < 0 or > 100)
         {
             throw new ArgumentOutOfRangeException(nameof(riskScore), "Risk score must be between 0 and 100.");
         }
 
         RiskScore = riskScore;
 
-        switch (riskScore)
+        Status = riskScore switch
         {
-            case <= 50:
-                Status = TransactionStatus.Approved;
-                break;
-            case <= 80:
-                Status = TransactionStatus.ManualReview;
-                break;
-            default:
-                Status = TransactionStatus.Rejected;
-                break;
-        }
+            <= 50 => TransactionStatus.Approved,
+            <= 80 => TransactionStatus.ManualReview,
+            _ => TransactionStatus.Rejected
+        };
     }
 }

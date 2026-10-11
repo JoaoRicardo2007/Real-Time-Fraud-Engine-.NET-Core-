@@ -1,6 +1,11 @@
 <Solution>
-  <Project Path="src/FraudEngine.Api/FraudEngine.Api.csproj" />
-  <Project Path="src/FraudEngine.Application/FraudEngine.Application.csproj" />
-  <Project Path="src/FraudEngine.Domain/FraudEngine.Domain.csproj" />
-  <Project Path="src/FraudEngine.Infrastructure/FraudEngine.Infrastructure.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/FraudEngine.Api/FraudEngine.Api.csproj" />
+    <Project Path="src/FraudEngine.Application/FraudEngine.Application.csproj" />
+    <Project Path="src/FraudEngine.Domain/FraudEngine.Domain.csproj" />
+    <Project Path="src/FraudEngine.Infrastructure/FraudEngine.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FraudEngine.Domain.Tests/FraudEngine.Domain.Tests.csproj" />
+  </Folder>
 </Solution>
