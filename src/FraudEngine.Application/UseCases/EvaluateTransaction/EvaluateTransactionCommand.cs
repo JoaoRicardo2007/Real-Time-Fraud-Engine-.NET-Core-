@@ -8,7 +8,6 @@ namespace FraudEngine.Application.UseCases.EvaluateTransaction
     (
         string UserId,
         decimal Amount,
-        string Status,
         string Currency,
         string IpAddress,
         string DeviceFingerprint,
