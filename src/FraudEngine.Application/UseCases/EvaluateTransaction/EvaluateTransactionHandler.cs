@@ -1,9 +1,10 @@
-﻿using FraudEngine.Domain.Entities;
-using FraudEngine.Application.Abstractions;
+﻿using FraudEngine.Application.Abstractions;
+using FraudEngine.Domain.Entities;
+using MediatR;
 
 namespace FraudEngine.Application.UseCases.EvaluateTransaction;
 
-public class EvaluateTransactionHandler
+public class EvaluateTransactionHandler : IRequestHandler<EvaluateTransactionCommand, EvaluateTransactionResult>
 {
     private readonly IRiskScoreEvaluator _riskScoreEvaluator;
 
@@ -12,7 +13,7 @@ public class EvaluateTransactionHandler
         _riskScoreEvaluator = riskScoreEvaluator;
     }
 
-    public Transaction Handle(EvaluateTransactionCommand command)
+    public Task<EvaluateTransactionResult> Handle(EvaluateTransactionCommand command, CancellationToken cancellationToken)
     {
         var transaction = new Transaction(
             command.UserId,
@@ -26,6 +27,12 @@ public class EvaluateTransactionHandler
 
         transaction.UpdateTransactionStatus(riskScore);
 
-        return transaction;
+        return Task.FromResult(new EvaluateTransactionResult
+        {
+            Id = transaction.Id,
+            CreatedAt = transaction.CreatedAt,
+            Status = transaction.Status,
+            RiskScore = riskScore
+        });
     }
 }

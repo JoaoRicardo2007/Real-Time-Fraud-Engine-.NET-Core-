@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using MediatR;
 
 namespace FraudEngine.Application.UseCases.EvaluateTransaction
 {
@@ -12,5 +11,5 @@ namespace FraudEngine.Application.UseCases.EvaluateTransaction
         string IpAddress,
         string DeviceFingerprint,
         string Location
-    );
+    ) : IRequest<EvaluateTransactionResult>;
 }
