@@ -7,13 +7,19 @@ namespace FraudEngine.Application.UseCases.EvaluateTransaction;
 public class EvaluateTransactionHandler : IRequestHandler<EvaluateTransactionCommand, EvaluateTransactionResult>
 {
     private readonly IRiskScoreEvaluator _riskScoreEvaluator;
+    private readonly ITransactionRepository _transactionRepository;
 
-    public EvaluateTransactionHandler(IRiskScoreEvaluator riskScoreEvaluator)
+    public EvaluateTransactionHandler(
+        IRiskScoreEvaluator riskScoreEvaluator,
+        ITransactionRepository transactionRepository)
     {
         _riskScoreEvaluator = riskScoreEvaluator;
+        _transactionRepository = transactionRepository;
     }
 
-    public Task<EvaluateTransactionResult> Handle(EvaluateTransactionCommand command, CancellationToken cancellationToken)
+    public async Task<EvaluateTransactionResult> Handle(
+        EvaluateTransactionCommand command,
+        CancellationToken cancellationToken)
     {
         var transaction = new Transaction(
             command.UserId,
@@ -27,12 +33,14 @@ public class EvaluateTransactionHandler : IRequestHandler<EvaluateTransactionCom
 
         transaction.UpdateTransactionStatus(riskScore);
 
-        return Task.FromResult(new EvaluateTransactionResult
+        await _transactionRepository.AddAsync(transaction, cancellationToken);
+
+        return new EvaluateTransactionResult
         {
             Id = transaction.Id,
             CreatedAt = transaction.CreatedAt,
             Status = transaction.Status,
             RiskScore = riskScore
-        });
+        };
     }
 }
