@@ -22,6 +22,7 @@
   <ItemGroup>
 	<ProjectReference Include="..\..\src\FraudEngine.Application\FraudEngine.Application.csproj" />
 	<ProjectReference Include="..\..\src\FraudEngine.Domain\FraudEngine.Domain.csproj" />
+	<ProjectReference Include="..\..\src\FraudEngine.Infrastructure\FraudEngine.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
