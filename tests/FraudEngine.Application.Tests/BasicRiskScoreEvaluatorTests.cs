@@ -13,6 +13,7 @@ public class BasicRiskScoreEvaluatorTests
     public void CalculateRiskScore_should_apply_amount_bands(decimal amount, int expectedScore)
     {
         var transaction = new Transaction(
+            "external-123",
             "user-123",
             amount,
             "EUR",

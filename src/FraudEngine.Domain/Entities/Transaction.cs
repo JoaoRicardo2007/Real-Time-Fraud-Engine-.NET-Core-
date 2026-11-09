@@ -6,6 +6,7 @@ namespace FraudEngine.Domain.Entities;
 public class Transaction
 {
     public Guid Id { get; private set; }
+    public string ExternalTransactionId { get; private set; }
     public string UserId { get; private set; }
     public decimal Amount { get; private set; }
     public string Currency { get; private set; }
@@ -17,8 +18,16 @@ public class Transaction
     public DateTime CreatedAt { get; private set; }
 
     // Construtor para criar uma nova transação pendente
-    public Transaction(string userId, decimal amount, string currency, string ipAddress, string deviceFingerprint, string location)
+    public Transaction(
+        string externalTransactionId,
+        string userId,
+        decimal amount,
+        string currency,
+        string ipAddress,
+        string deviceFingerprint,
+        string location)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(externalTransactionId);
         ArgumentException.ThrowIfNullOrWhiteSpace(userId);
         ArgumentException.ThrowIfNullOrWhiteSpace(currency);
         ArgumentException.ThrowIfNullOrWhiteSpace(ipAddress);
@@ -31,6 +40,7 @@ public class Transaction
         }
 
         Id = Guid.NewGuid();
+        ExternalTransactionId = externalTransactionId;
         UserId = userId;
         Amount = amount;
         Currency = currency;

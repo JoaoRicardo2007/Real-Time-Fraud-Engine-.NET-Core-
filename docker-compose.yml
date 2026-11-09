@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: fraud-engine-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fraud_engine
+      POSTGRES_USER: fraud_engine
+      POSTGRES_PASSWORD: fraud_engine_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - fraud-engine-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraud_engine -d fraud_engine"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  fraud-engine-postgres-data:

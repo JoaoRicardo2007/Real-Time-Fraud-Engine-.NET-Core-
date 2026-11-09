@@ -3,6 +3,7 @@ using FraudEngine.Application.UseCases.EvaluateTransaction;
 using FraudEngine.Domain.Entities;
 using FraudEngine.Domain.Enums;
 using NSubstitute;
+using Microsoft.Extensions.Logging;
 
 namespace FraudEngine.Application.Tests;
 
@@ -18,9 +19,13 @@ public class EvaluateTransactionHandlerTests
     {
         var riskScoreEvaluator = Substitute.For<IRiskScoreEvaluator>();
         var transactionRepository = Substitute.For<ITransactionRepository>();
+        var logger = Substitute.For<ILogger<EvaluateTransactionHandler>>();
         var cancellationToken = new CancellationTokenSource().Token;
         riskScoreEvaluator.CalculateRiskScore(Arg.Any<Transaction>()).Returns(riskScore);
-        var handler = new EvaluateTransactionHandler(riskScoreEvaluator, transactionRepository);
+        var handler = new EvaluateTransactionHandler(
+            riskScoreEvaluator,
+            transactionRepository,
+            logger);
 
         var result = await handler.Handle(CreateCommand(), cancellationToken);
 
@@ -39,6 +44,7 @@ public class EvaluateTransactionHandlerTests
     private static EvaluateTransactionCommand CreateCommand()
     {
         return new EvaluateTransactionCommand(
+            "external-123",
             "user-123",
             100m,
             "EUR",

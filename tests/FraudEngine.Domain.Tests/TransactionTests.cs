@@ -9,6 +9,7 @@ public class TransactionTests
     public void New_transaction_should_start_as_pending()
     {
         var transaction = new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -24,6 +25,7 @@ public class TransactionTests
     public void New_transaction_should_reject_empty_user_id()
     {
         Assert.Throws<ArgumentException>(() => new Transaction(
+            "external-123",
             "",
             100m,
             "EUR",
@@ -36,6 +38,7 @@ public class TransactionTests
     public void New_transaction_should_reject_empty_currency()
     {
         Assert.Throws<ArgumentException>(() => new Transaction(
+            "external-123",
             "user-123",
             100m,
             "",
@@ -48,6 +51,7 @@ public class TransactionTests
     public void New_transaction_should_reject_empty_ip_address()
     {
         Assert.Throws<ArgumentException>(() => new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -60,6 +64,7 @@ public class TransactionTests
     public void New_transaction_should_reject_empty_device_fingerprint()
     {
         Assert.Throws<ArgumentException>(() => new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -72,6 +77,7 @@ public class TransactionTests
     public void New_transaction_should_reject_empty_location()
     {
         Assert.Throws<ArgumentException>(() => new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -86,6 +92,7 @@ public class TransactionTests
     public void New_transaction_should_reject_non_positive_amount(decimal amount)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => new Transaction(
+            "external-123",
             "user-123",
             amount,
             "EUR",
@@ -106,6 +113,7 @@ public class TransactionTests
     TransactionStatus expectedStatus)
     {
         var transaction = new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -126,6 +134,7 @@ public class TransactionTests
         int riskScore)
     {
         var transaction = new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",
@@ -144,6 +153,7 @@ public class TransactionTests
     public void Update_transaction_status_should_not_allow_re_evaluation()
     {
         var transaction = new Transaction(
+            "external-123",
             "user-123",
             100m,
             "EUR",

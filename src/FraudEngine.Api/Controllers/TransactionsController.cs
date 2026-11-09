@@ -1,4 +1,5 @@
 using FraudEngine.Application.UseCases.EvaluateTransaction;
+using FraudEngine.Application.UseCases.GetTransactionById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ public sealed class TransactionsController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(
             new EvaluateTransactionCommand(
+                request.ExternalTransactionId,
                 request.UserId,
                 request.Amount,
                 request.Currency,
@@ -25,11 +27,26 @@ public sealed class TransactionsController(ISender sender) : ControllerBase
                 request.Location),
             cancellationToken);
 
-        return CreatedAtAction(nameof(Evaluate), new { id = result.Id }, result);
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(TransactionResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<TransactionResult>> GetById(
+        Guid id,
+        CancellationToken cancellationToken)
+    {
+        var result = await sender.Send(
+            new GetTransactionByIdQuery(id),
+            cancellationToken);
+
+        return result is null ? NotFound() : Ok(result);
     }
 }
 
 public sealed record EvaluateTransactionRequest(
+    string ExternalTransactionId,
     string UserId,
     decimal Amount,
     string Currency,

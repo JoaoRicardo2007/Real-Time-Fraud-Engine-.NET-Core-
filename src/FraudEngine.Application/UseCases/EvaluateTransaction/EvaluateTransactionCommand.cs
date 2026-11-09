@@ -5,6 +5,7 @@ namespace FraudEngine.Application.UseCases.EvaluateTransaction
 {
     public record EvaluateTransactionCommand
     (
+        string ExternalTransactionId,
         string UserId,
         decimal Amount,
         string Currency,

@@ -15,6 +15,9 @@ public sealed class FraudEngineDbContext(DbContextOptions<FraudEngineDbContext> 
             entity.ToTable("transactions");
             entity.HasKey(transaction => transaction.Id);
 
+            entity.Property(transaction => transaction.ExternalTransactionId)
+                .HasMaxLength(100)
+                .IsRequired();
             entity.Property(transaction => transaction.UserId).HasMaxLength(100).IsRequired();
             entity.Property(transaction => transaction.Currency).HasMaxLength(3).IsRequired();
             entity.Property(transaction => transaction.IpAddress).HasMaxLength(45).IsRequired();
@@ -26,6 +29,11 @@ public sealed class FraudEngineDbContext(DbContextOptions<FraudEngineDbContext> 
 
             entity.HasIndex(transaction => transaction.UserId);
             entity.HasIndex(transaction => transaction.CreatedAt);
+            entity.HasIndex(transaction => new
+            {
+                transaction.UserId,
+                transaction.ExternalTransactionId
+            }).IsUnique();
         });
     }
 }
